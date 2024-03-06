@@ -131,4 +131,4 @@ def translate():
         return jsonify({'status': 'error', 'message': 'No input image provided in the request'}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)

@@ -42,11 +42,9 @@
     <body>
         <h1>Sign2Text | V0.1</h1>
         <video id="video" width="640" height="480" autoplay></video>
-        <div id="gesture">Gesture: None | Confidence: 0.0</div>
+        <div id="gesture">Starting the webcam, this may take a few seconds...</div>
         <p>Developed by: Nth Times The Charm | HackKRMU 2024</p>
-        <p style="font-size: .8em;">Note: This is a prototype and may not be
-            accurate. Please use it for educational purposes only.</p>
-
+        <p style="font-size: .8em;">Note: This is a prototype version of Sign2Text. The accuracy of the system can fluctate a lot due to the limited training data (3000+ Images). 
         <script>
         // Send a POST request to the API every 2 seconds
         function sendImage() {
@@ -65,11 +63,14 @@
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 if (data.status == 'success') {
+                    document.getElementById('gesture').style.color = "green";   
                     document.getElementById('gesture').innerText = `Gesture: ${data.gesture} | Confidence: ${data.confidence}`;
                 }
-                document.getElementById('gesture').innerText = `Oops! Our services are not available at the moment. Please try again later :(`;
+                else{
+                document.getElementById('gesture').innerText = `Oops! The hand was not detected. Please try placing your hand in the frame.`;document.getElementById('gesture').style.color = "red";
+
+                }
             });
         }
 
@@ -91,14 +92,11 @@
         navigator.mediaDevices.getUserMedia({ video: true })
             .then(stream => {
                 video.srcObject = stream;
-                setInterval(sendImage, 1000);
+                setInterval(sendImage, 2000);
             })
             .catch(err => {
-                console.error('Access to webcam was denied', err);
+                alert('Access to webcam was denied, please allow access to the webcam and refresh the page.');
             });
-
-        setInterval(sendImage, 1000);
-
     </script>
     </body>
 </html>

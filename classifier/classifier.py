@@ -8,8 +8,8 @@ from tensorflow.keras.models import load_model
 
 
 # Go through all the  folders in the images folder and classify the images
-sign_language_detector_model = load_model("application\\trained_models\model_1\keras_model.h5", compile=False)
-labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'del', 'space']
+sign_language_detector_model = load_model("trained_models\keras_model.h5", compile=False)
+labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'del']
 
 mediapipe_hands = mediapipe.solutions.hands
 hands = mediapipe_hands.Hands(static_image_mode=True, max_num_hands=1, min_detection_confidence=0.5)
