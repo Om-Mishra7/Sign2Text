@@ -1,5 +1,7 @@
 # HackKRMU3 Hackathon Project: Sign2Text - Sign Language Translation Application
 
+![Screenshot Of Sign2Text](https://ather.om-mishra.com/downloads/Sign2Text.jpeg)
+
 ### Notice: Accuracy Fluctuation
 
 **Important Notice:** Please be aware that the accuracy of Sign2Text may fluctuate significantly under varying camera and lighting conditions. Factors such as poor lighting, camera angle, and background clutter can affect the performance of the hand gesture detection and translation model. While Sign2Text strives to provide accurate translations, it is essential to consider environmental conditions when using the application.
