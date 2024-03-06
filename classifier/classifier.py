@@ -9,7 +9,7 @@ from tensorflow.keras.models import load_model
 
 # Go through all the  folders in the images folder and classify the images
 sign_language_detector_model = load_model("application\\trained_models\model_1\keras_model.h5", compile=False)
-labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'del', 'space']
+labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'del', 'space']
 
 mediapipe_hands = mediapipe.solutions.hands
 hands = mediapipe_hands.Hands(static_image_mode=True, max_num_hands=1, min_detection_confidence=0.5)
@@ -67,17 +67,32 @@ def preprocess_image(image_path):
         # Remove the alpha channel from the image
         resized_image = resized_image[:,:,:3]
 
-        # Convert the image to a NumPy array
-
-
-        # Normalize the image array
-        normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
-
         # Save the preprocessed image to the classified_images folder
-        cv2.imwrite("classified_images/" + image_path.split("\\")[-1], input_image) # Save the preprocessed image to the classified_images folder
+        return resized_image
+    
+def classify_and_save(image_path, label):
+    # Preprocess the image
+    input_data = preprocess_image(image_path)
+    if input_data is None:
+        return  # Skip if preprocessing failed
+
+    # Create the corresponding folder in classified_images if it doesn't exist
+    save_folder = os.path.join("classified_images", label)
+    if not os.path.exists(save_folder):
+        os.makedirs(save_folder)
+
+    # Save the preprocessed image
+    save_path = os.path.join(save_folder, os.path.basename(image_path))
+    cv2.imwrite(save_path, input_data)
+    print(f"Image '{image_path}' processed and saved to '{save_path}'")
 
 # In images folder, go through all the folders and classify the images
 
-for folder in os.listdir("images"):
-        for image in os.listdir("images\\" + folder):
-            input_data = preprocess_image("images\\" + folder + "\\" + image)
+for label in os.listdir("images"):
+    label_path = os.path.join("images", label)
+    if os.path.isdir(label_path):
+        # Iterate through all images in the current label folder
+        for image in os.listdir(label_path):
+            image_path = os.path.join(label_path, image)
+            if os.path.isfile(image_path):
+                classify_and_save(image_path, label)

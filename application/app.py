@@ -59,6 +59,8 @@ def preprocess_image(image_path):
         # Resize the image to the required input size for the model
         resized_image = cv2.resize(input_image, (224, 224))
 
+        resized_image = resized_image[:,:,:3]
+
         # Convert the image to a NumPy array
         image_array = np.array(resized_image)
 
