@@ -8,7 +8,7 @@
 
 Sign2Text is a web-based application that utilizes computer vision and machine learning to translate sign language gestures into text. The application is designed to be user-friendly and accessible to a wide audience. To run Sign2Text on your local system, follow the instructions below:
 
-**Step 1: View on browser**
+**Step 1: View on browser** [https://sign2text.om-mishra.com/home](https://sign2text.om-mishra.com/home)
     
 
 **Step 1: Clone the Repository**
