@@ -2,11 +2,11 @@
 
 ![Screenshot Of Sign2Text](https://ather.om-mishra.com/downloads/Sign2Text.jpeg)
 
-### Notice: Accuracy Fluctuation
+## Notice: Accuracy Fluctuation
 
 **Important Notice:** Please be aware that the accuracy of Sign2Text may fluctuate significantly under varying camera and lighting conditions. Factors such as poor lighting, camera angle, and background clutter can affect the performance of the hand gesture detection and translation model. While Sign2Text strives to provide accurate translations, it is essential to consider environmental conditions when using the application.
 
-### Instructions to Run Sign2Text
+## Instructions to Run Sign2Text
 
 Sign2Text is a web-based application that utilizes computer vision and machine learning to translate sign language gestures into text. The application is designed to be user-friendly and accessible to a wide audience. To run Sign2Text on your local system, follow the instructions below:
 
@@ -46,12 +46,12 @@ Please keep in mind that Sign2Text's accuracy may vary based on environmental fa
 **Step 8: Provide Feedback**
 We value your feedback! If you encounter any issues or have suggestions for improvement, please don't hesitate to reach out to us.
 
-### Team Information
+## Team Information
 Sign2Text was developed by the following team members during the HackKRMU Hackathon:
 - Om Mishra
 - Laxman Singh
 - Bharat Bhushan
 - Satwik Mishra
 
-### Conclusion
+## Conclusion
 Thank you for the amazing opportunity to participate in the HackKRMU3 Hackathon. We are excited to present Sign2Text and look forward to your feedback and suggestions. We hope that Sign2Text will help bridge the communication gap between the hearing-impaired and the general population, making the world a more inclusive and accessible place for everyone utilizing the untapped potential of AI and computer vision.
