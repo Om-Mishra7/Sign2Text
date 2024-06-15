@@ -5,6 +5,12 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN apt update
+
+RUN apt-get install -y \
+    libgl1-mesa-glx \
+    libhdf5-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN apt install libhdf5-dev -y
 RUN export HDF5_DIR=/usr/lib/aarch64-linux-gnu/hdf5
 
