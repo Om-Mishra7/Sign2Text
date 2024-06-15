@@ -25,5 +25,3 @@ COPY . .
 WORKDIR /app/application
 
 CMD ["gunicorn", "--bind", "0.0.0.0:5001", "app:app"]
-
-WORKDIR /app
