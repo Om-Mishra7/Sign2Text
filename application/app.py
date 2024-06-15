@@ -6,7 +6,7 @@ from tensorflow.keras.models import load_model
 from flask import Flask, request, jsonify, redirect, render_template, url_for, session
 
 # Import the model class
-sign_language_detector_model = load_model("application\\trained_models\model_1\keras_model.h5", compile=False)
+sign_language_detector_model = load_model("trained_models\model_1\keras_model.h5", compile=False)
 labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'del', 'space']
 
 mediapipe_hands = mediapipe.solutions.hands
